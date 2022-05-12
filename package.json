@@ -1,8 +1,45 @@
 {
   "name": "pokedex",
   "version": "1.0.0",
+  "description": "Pokedex clone",
   "main": "index.js",
-  "repository": "git@github.com:BrunoMorales/pokedex.git",
+  "scripts": {
+    "dev": "yarn start --ENV=DEV",
+    "prod": "yarn start --ENV=PROD",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "BrunoMorales bruno.morales.developer@gmail.com",
-  "license": "MIT"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "sass": "^1.51.0",
+    "typescript": "^4.6.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@babel/runtime": "^7.17.9",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.15.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "css-loader": "^6.7.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "path": "^0.12.7"
+  }
 }
