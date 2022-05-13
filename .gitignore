@@ -1,0 +1,8 @@
+npm-debug.log
+
+# Visual Studio code custom preferences
+.vscode
+
+/build
+/node_modules
+/yarn.lock
