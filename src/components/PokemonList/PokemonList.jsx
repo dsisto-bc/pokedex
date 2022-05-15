@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from "react";
-import getPagePokemonsByUrl from "../api/getPagePokemonsByUrl";
-import PokemonListItem from "./PokemonListItem";
-import getPokemonUrls from "../api/getPokemonUrls";
+import getPagePokemonsByUrl from "../../api/getPagePokemonsByUrl";
+import PokemonListItem from "../PokemonListItem";
+import getPokemonUrls from "../../api/getPokemonUrls";
 
 const PokemonList = () => {
 	const [pokemonPageList, setPokemonPageList] = useState([]);
 	const [pokemonPage, setPokemonPage] = useState([]);
-	const [pokemonPageIndex, setPokemonPageIndex] = useState(0);
+	const [pokemonPageIndex, setPokemonPageIndex] = useState(1);
 
 	useEffect(() => {
 		// Getting all pokemons urls first, already paginated
 		getPokemonUrls().then((urls) => {
 			setPokemonPageList(urls);
-			console.log("setPokemonPageList", urls);
 		});
 	}, []);
 
 	useEffect(() => {
-		// As soon as all pokemons are loaded, we get detailed info for current page
+		// As soon as all pokemons are loaded, detailed pokemon data for current page's pokemon is defined to load the list
 		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex]).then(
 			(pokemons) => {
 				setPokemonPage(pokemons);
-				console.log("setPokemonPage", pokemons);
 			}
 		);
 	}, [pokemonPageList]);
 
 	return (
-		<div>
-			page {pokemonPageIndex}
+		<section className='pokemon-list'>
+			<h1>Welcome, Pokemon Master!</h1>
+			<div>
+				page {pokemonPageIndex} of {pokemonPageList.length}
+			</div>
 			{pokemonPage?.map((pokemon) => (
 				<PokemonListItem key={pokemon.name} {...pokemon} />
 			))}
-		</div>
+		</section>
 	);
 };
 
