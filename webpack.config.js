@@ -9,6 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "build"),
 		filename: "index.js",
+		publicPath: "/",
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "build/styles.css" }),
@@ -24,6 +25,7 @@ module.exports = {
 		open: true,
 		hot: true,
 		liveReload: true,
+		historyApiFallback: true,
 	},
 	resolve: {
 		extensions: [
