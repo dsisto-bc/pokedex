@@ -1,11 +1,12 @@
 import React from "react";
+import PokemonList from "./components/PokemonList";
 
-const App = () =>{
-    return (
-        <h1>
-            Hello World
-        </h1>
-    )
-}
+const App = () => {
+	return (
+		<main>
+			<PokemonList />
+		</main>
+	);
+};
 
-export default App
+export default App;
