@@ -6,11 +6,17 @@ const PokemonListItem = (pokemon) => {
 
 	return (
 		<div className='pokemon-list-item'>
-			<img src={image} />
-			<h2 className='pokemon-name'>{name}</h2>
+			<div className='pokemon-container'>
+				<h2 className='pokemon-name'>{name}</h2>
+				<img
+					className='pokemon-image'
+					src={image}
+					alt={`${pokemon}'s picture`}
+				/>
+			</div>
 			<div className='type-container'>
 				{types.map((type) => (
-					<p key={type} className={`type--${type}`}>
+					<p key={type} className={`type type--${type}`}>
 						{type}
 					</p>
 				))}

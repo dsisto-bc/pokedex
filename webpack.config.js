@@ -11,7 +11,7 @@ module.exports = {
 		filename: "index.js",
 	},
 	plugins: [
-		new MiniCssExtractPlugin(),
+		new MiniCssExtractPlugin({ filename: "build/styles.css" }),
 		new HtmlWebpackPlugin({
 			template: "public/index.html",
 		}),
