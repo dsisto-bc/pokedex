@@ -1,10 +1,11 @@
 import React from "react";
+import "./pokemonListItem.scss";
 
 const PokemonListItem = (pokemon) => {
 	const { image, name, types } = pokemon;
 
 	return (
-		<div>
+		<div className='pokemon-list-item'>
 			<img src={image} />
 			<h2>{name}</h2>
 			<div>

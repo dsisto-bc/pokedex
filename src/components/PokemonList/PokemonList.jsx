@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import getPagePokemonsByUrl from "../../api/getPagePokemonsByUrl";
-import PokemonListItem from "../PokemonListItem";
+import PokemonListItem from "../PokemonListItem/PokemonListItem";
 import getPokemonUrls from "../../api/getPokemonUrls";
+
+import "./pokemonList.scss";
 
 const PokemonList = () => {
 	const [pokemonPageList, setPokemonPageList] = useState([]);
@@ -30,9 +32,11 @@ const PokemonList = () => {
 			<div>
 				page {pokemonPageIndex} of {pokemonPageList.length}
 			</div>
-			{pokemonPage?.map((pokemon) => (
-				<PokemonListItem key={pokemon.name} {...pokemon} />
-			))}
+			<div>
+				{pokemonPage?.map((pokemon) => (
+					<PokemonListItem key={pokemon.name} {...pokemon} />
+				))}
+			</div>
 		</section>
 	);
 };
