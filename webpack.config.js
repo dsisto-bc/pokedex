@@ -14,6 +14,7 @@ module.exports = {
 		new MiniCssExtractPlugin({ filename: "build/styles.css" }),
 		new HtmlWebpackPlugin({
 			template: "public/index.html",
+			favicon: "public/pokeball.ico",
 		}),
 	],
 	target: ["web", "es5"],
