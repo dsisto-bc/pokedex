@@ -7,10 +7,12 @@ const PokemonListItem = (pokemon) => {
 	return (
 		<div className='pokemon-list-item'>
 			<img src={image} />
-			<h2>{name}</h2>
-			<div>
+			<h2 className='pokemon-name'>{name}</h2>
+			<div className='type-container'>
 				{types.map((type) => (
-					<span>{type}</span>
+					<p key={type} className={`type--${type}`}>
+						{type}
+					</p>
 				))}
 			</div>
 		</div>

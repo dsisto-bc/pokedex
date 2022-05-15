@@ -11,7 +11,7 @@ module.exports = {
 		filename: "index.js",
 	},
 	plugins: [
-		new MiniCssExtractPlugin({ filename: "build/styles.css" }),
+		new MiniCssExtractPlugin(),
 		new HtmlWebpackPlugin({
 			template: "public/index.html",
 		}),
@@ -45,11 +45,15 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, "css-loader"],
+				use: [
+					MiniCssExtractPlugin.loader,
+					"style-loader",
+					"css-loader",
+				],
 			},
 			{
 				test: /\.(sass|scss)$/,
-				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+				use: ["style-loader", "css-loader", "sass-loader"],
 			},
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
