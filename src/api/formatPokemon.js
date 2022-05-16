@@ -17,7 +17,7 @@ const formatPokemon = (apiResponse) => {
 			(apiAbility) => apiAbility.ability.name
 		),
 	};
-	debugger;
+
 	return formattedPokemon;
 };
 
