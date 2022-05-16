@@ -24,7 +24,9 @@ const PokemonDetailPage = () => {
 				<PokemonDescriptionSection {...pokemonDetails} />
 				<PokemonAbilitiesSection abilities={pokemonDetails.abilities} />
 				<PokemonTypesSection types={pokemonDetails.types} />
-				<Link to='/'>Go back</Link>
+				<Link className='basic-button' to='/'>
+					Go back
+				</Link>
 			</main>
 		)
 	);
