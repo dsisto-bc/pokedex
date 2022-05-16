@@ -11,8 +11,8 @@ root.render(
 	<BrowserRouter>
 		<Routes>
 			<Route path='' element={<PokemonListPage />} />
+			<Route path='404' element={<PageNotFound />} />
 			<Route path=':pokemonName' element={<PokemonDetailPage />} />
-			<Route path='*' element={<PageNotFound />} />
 		</Routes>
 	</BrowserRouter>
 );

@@ -13,7 +13,7 @@ const getPokemonByName = async (pokemon) => {
 			"There was an error getting the pokemon requested",
 			error
 		);
-		return [];
+		return false;
 	}
 };
 export default getPokemonByName;
