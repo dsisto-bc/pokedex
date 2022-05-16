@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import getPokemonByName from "../../api/getPokemonByName";
+import PokemonDescriptionSection from "./components/PokemonDescriptionSection";
 
 const PokemonDetailPage = () => {
 	const { pokemonName } = useParams();
@@ -11,14 +12,17 @@ const PokemonDetailPage = () => {
 	useEffect(() => {
 		getPokemonByName(pokemonName).then((pokemonData) => {
 			!!pokemonData ? setPokemonDetails(pokemonData) : navigate("/404");
+			console.log("pokemonDetails", pokemonData);
 		});
 	}, []);
 
 	return (
-		<main>
-			<h1>This is the details page for {pokemonName}</h1>
-			<Link to='/'>Go back</Link>
-		</main>
+		pokemonDetails && (
+			<main>
+				<PokemonDescriptionSection {...pokemonDetails} />
+				<Link to='/'>Go back</Link>
+			</main>
+		)
 	);
 };
 
