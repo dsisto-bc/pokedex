@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./pokemonListItem.scss";
 
 const PokemonListItem = (pokemon) => {
 	const { image, name, types } = pokemon;
 
 	return (
-		<div className='pokemon-list-item'>
+		<Link to={`/${name}`} className='pokemon-list-item'>
 			<div className='pokemon-container'>
 				<h2 className='pokemon-name'>{name}</h2>
 				<img
@@ -21,7 +22,7 @@ const PokemonListItem = (pokemon) => {
 					</p>
 				))}
 			</div>
-		</div>
+		</Link>
 	);
 };
 

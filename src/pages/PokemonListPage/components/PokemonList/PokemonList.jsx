@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import getPagePokemonsByUrl from "../../api/getPagePokemonsByUrl";
+import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
 import PokemonListItem from "../PokemonListItem/PokemonListItem";
-import getPokemonUrls from "../../api/getPokemonUrls";
+import getPokemonUrls from "../../../../api/getPokemonUrls";
 
 import "./pokemonList.scss";
 
@@ -28,7 +28,6 @@ const PokemonList = () => {
 
 	return (
 		<section className='pokemon-list'>
-			<h1>Welcome, Pokemon Master!</h1>
 			<div>
 				page {pokemonPageIndex} of {pokemonPageList.length}
 			</div>
