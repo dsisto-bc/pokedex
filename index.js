@@ -5,7 +5,7 @@ import PokemonListPage from "./src/pages/PokemonListPage";
 import PageNotFound from "./src/pages/PageNotFound/PageNotFound";
 import PokemonDetailPage from "./src/pages/PokemonDetailPage/PokemonDetailPage";
 
-import "./index.scss";
+import "./base.scss";
 
 const root = createRoot(document.getElementById("root"));
 

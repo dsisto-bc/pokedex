@@ -1,4 +1,6 @@
-const formatPokemon = (apiResponse) => {
+import { Pokemon } from "../Types";
+
+const formatPokemon = (apiResponse): Pokemon => {
 	const formattedPokemon = {
 		name: apiResponse.name,
 		image: apiResponse.sprites.front_default,

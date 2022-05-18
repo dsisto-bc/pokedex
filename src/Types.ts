@@ -3,10 +3,10 @@ export type Pokemon = {
 	image: string;
 	height: number;
 	weight: number;
-	types: string[];
 	stats: {
 		[statName: string]: number;
 	};
-	moves: string;
-	abilities: string;
+	types: string[];
+	abilities: string[];
+	moves: string[];
 };
