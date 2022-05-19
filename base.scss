@@ -24,6 +24,8 @@ body {
 	align-items: center;
 	color: white !important;
 	background-color: red;
+	min-width: fit-content;
+	padding: 0 16px;
 	display: flex;
 	height: 2.5em;
 	font-weight: bold;
