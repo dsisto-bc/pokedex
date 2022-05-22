@@ -3,7 +3,8 @@ import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
 import PokemonListItem from "../PokemonListItem/PokemonListItem";
 import getPokemonUrls from "../../../../api/getPokemonUrls";
 import { Pokemon } from "../../../../Types";
-import Pagination from "./Pagination";
+import PaginationHeader from "./Pagination/PaginationHeader";
+import PaginationFooter from "./Pagination/PaginationFooter";
 
 import "./styles.scss";
 
@@ -29,19 +30,17 @@ const PokemonList = () => {
 
 	return (
 		<section className='pokemon-list'>
-			<Pagination
-				setPokemonPerPage={setPokemonPerPage}
+			<PaginationHeader setPokemonPerPage={setPokemonPerPage} pokemonPerPage={pokemonPerPage} />
+			<div>
+				{pokemonPage?.map((pokemon) => (
+					<PokemonListItem key={pokemon.profile.pokemonName} {...pokemon} />
+				))}
+			</div>
+			<PaginationFooter
 				setPokemonPageIndex={setPokemonPageIndex}
 				pokemonPageListLength={pokemonPageList.length}
 				pokemonPageIndex={pokemonPageIndex}
-				pokemonPerPage={pokemonPerPage}
-			>
-				<div>
-					{pokemonPage?.map((pokemon) => (
-						<PokemonListItem key={pokemon.profile.pokemonName} {...pokemon} />
-					))}
-				</div>
-			</Pagination>
+			/>
 		</section>
 	);
 };

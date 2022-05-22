@@ -17,10 +17,6 @@
 .pagination-container {
 	padding: 24px 0;
 
-	.error-message {
-		color: red;
-	}
-
 	.page-monitor {
 		flex: auto;
 	}
@@ -53,5 +49,10 @@
 			padding: 16px;
 			box-sizing: content-box;
 		}
+	}
+
+	.error-message {
+		color: red;
+		text-align: center;
 	}
 }
