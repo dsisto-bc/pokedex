@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Pokemon } from "../../../../Types";
-import { Stats } from "../../../PokemonDetailPage/DetailSections";
+import { Pokemon } from "../../../../../Types";
+import { Stats } from "../../../../PokemonDetailPage/DetailSections";
 import "./styles.scss";
 
 const PokemonListItem = (pokemon: Pokemon) => {

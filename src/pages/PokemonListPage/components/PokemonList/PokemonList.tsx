@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
-import PokemonListItem from "../PokemonListItem/PokemonListItem";
+import PokemonListItem from "./PokemonListItem";
 import getPokemonUrls from "../../../../api/getPokemonUrls";
 import { Pokemon } from "../../../../Types";
 import PaginationHeader from "./Pagination/PaginationHeader";
@@ -26,12 +26,12 @@ const PokemonList = () => {
 		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex], pokemonPerPage).then((pokemons) => {
 			setPokemonPage(pokemons);
 		});
-	}, [pokemonPageList, pokemonPageIndex, pokemonPerPage]);
+	}, [pokemonPageList, pokemonPageIndex, pokemonPerPage, setPokemonPage]);
 
 	return (
 		<section className='pokemon-list'>
 			<PaginationHeader setPokemonPerPage={setPokemonPerPage} pokemonPerPage={pokemonPerPage} />
-			<div>
+			<div className='pokemon-container'>
 				{pokemonPage?.map((pokemon) => (
 					<PokemonListItem key={pokemon.profile.pokemonName} {...pokemon} />
 				))}
