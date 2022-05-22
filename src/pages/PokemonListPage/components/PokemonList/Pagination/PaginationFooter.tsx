@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { PaginationProps } from "./Types";
 
 import "./styles.scss";
@@ -7,27 +7,37 @@ const PaginationFooter = ({ setPokemonPageIndex, pokemonPageListLength, pokemonP
 	const [manualPageDirection, setManualPageDirection] = useState<number | string>("");
 	const [DirectionerrorMessage, setDirectionErrorMessage] = useState<string>("");
 
-	const handleGoToPage = (e) => {
-		e.preventDefault();
-		const pageToGo = Number(manualPageDirection) - 1;
-		if ((pageToGo || pageToGo === 0) && pageToGo <= pokemonPageListLength && pageToGo >= 0) {
-			setPokemonPageIndex(pageToGo);
-			setManualPageDirection("");
-			setDirectionErrorMessage("");
-		} else {
-			pageToGo ? setDirectionErrorMessage("there's no such page") : setDirectionErrorMessage("");
-		}
-	};
+	const handleGoToPage = useCallback(
+		(e) => {
+			e.preventDefault();
+			if (manualPageDirection) {
+				const pageToGo = Number(manualPageDirection) - 1;
+				if ((pageToGo || pageToGo === 0) && pageToGo <= pokemonPageListLength && pageToGo >= 0) {
+					setPokemonPageIndex(pageToGo);
+					setDirectionErrorMessage("");
+				} else {
+					pageToGo ? setDirectionErrorMessage("there's no such page") : setDirectionErrorMessage("");
+				}
+			}
+		},
+		[setPokemonPageIndex, setDirectionErrorMessage, manualPageDirection, pokemonPageListLength]
+	);
 
-	const handlePreviousPage = (e) => {
-		e.preventDefault();
-		pokemonPageIndex > 0 && setPokemonPageIndex(pokemonPageIndex - 1);
-	};
+	const handlePreviousPage = useCallback(
+		(e) => {
+			e.preventDefault();
+			pokemonPageIndex > 0 && setPokemonPageIndex(pokemonPageIndex - 1);
+		},
+		[pokemonPageIndex, setPokemonPageIndex]
+	);
 
-	const handleNextPage = (e) => {
-		e.preventDefault();
-		pokemonPageIndex <= pokemonPageListLength && setPokemonPageIndex(pokemonPageIndex + 1);
-	};
+	const handleNextPage = useCallback(
+		(e) => {
+			e.preventDefault();
+			pokemonPageIndex <= pokemonPageListLength && setPokemonPageIndex(pokemonPageIndex + 1);
+		},
+		[pokemonPageIndex, setPokemonPageIndex]
+	);
 
 	return (
 		<>
