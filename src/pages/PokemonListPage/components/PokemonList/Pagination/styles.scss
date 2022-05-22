@@ -1,4 +1,26 @@
+.pokemon-per-page {
+	display: flex;
+	align-items: center;
+	column-gap: 4px;
+	margin: 24px 0;
+	.page-length-button {
+		display: inline;
+		appearance: none;
+		background-color: gray;
+
+		&--checked {
+			background-color: red;
+		}
+	}
+}
+
 .pagination-container {
+	padding: 24px 0;
+
+	.error-message {
+		color: red;
+	}
+
 	.page-monitor {
 		flex: auto;
 	}
@@ -10,23 +32,26 @@
 
 		.manual-pagination {
 			display: flex;
-			flex-direction: column;
-			.error-message {
-				color: red;
-			}
+			align-items: center;
+			column-gap: 16px;
+			justify-content: space-between;
 
 			.pagination-input {
-				flex: 1;
+				width: 100%;
+				box-sizing: border-box;
+			}
+
+			.go-to-button-container {
+				.go-to-button {
+					flex: 0;
+				}
 			}
 		}
 
 		.pagination-button {
 			aspect-ratio: 1;
-			padding: 12px;
+			padding: 16px;
 			box-sizing: content-box;
-			min-width: min-content;
-			min-height: min-content;
-			flex: 0;
 		}
 	}
 }

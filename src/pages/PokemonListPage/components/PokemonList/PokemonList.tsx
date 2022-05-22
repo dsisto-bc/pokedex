@@ -11,8 +11,7 @@ const PokemonList = () => {
 	const [pokemonPageList, setPokemonPageList] = useState<string[]>([]);
 	const [pokemonPage, setPokemonPage] = useState<Pokemon[]>([]);
 	const [pokemonPageIndex, setPokemonPageIndex] = useState<number>(0);
-	const [manualPage, setManualPage] = useState<number | string>("");
-	const [errorMessage, setErrorMessage] = useState<string>("");
+	const [pokemonPerPage, setPokemonPerPage] = useState<number>(15);
 
 	useEffect(() => {
 		// Getting all pokemons urls first, already paginated
@@ -23,28 +22,26 @@ const PokemonList = () => {
 
 	useEffect(() => {
 		// As soon as all pokemons are loaded, detailed pokemon data for current page's pokemon is defined to load the list
-		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex]).then(
-			(pokemons) => {
-				setPokemonPage(pokemons);
-			}
-		);
-	}, [pokemonPageList, pokemonPageIndex]);
+		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex], pokemonPerPage).then((pokemons) => {
+			setPokemonPage(pokemons);
+		});
+	}, [pokemonPageList, pokemonPageIndex, pokemonPerPage]);
 
 	return (
 		<section className='pokemon-list'>
 			<Pagination
+				setPokemonPerPage={setPokemonPerPage}
 				setPokemonPageIndex={setPokemonPageIndex}
 				pokemonPageListLength={pokemonPageList.length}
 				pokemonPageIndex={pokemonPageIndex}
-			/>
-			<div>
-				{pokemonPage?.map((pokemon) => (
-					<PokemonListItem
-						key={pokemon.profile.pokemonName}
-						{...pokemon}
-					/>
-				))}
-			</div>
+				pokemonPerPage={pokemonPerPage}
+			>
+				<div>
+					{pokemonPage?.map((pokemon) => (
+						<PokemonListItem key={pokemon.profile.pokemonName} {...pokemon} />
+					))}
+				</div>
+			</Pagination>
 		</section>
 	);
 };

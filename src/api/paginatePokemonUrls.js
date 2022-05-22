@@ -1,6 +1,4 @@
-const pokemonPerPage = 20;
-
-const paginatePokemonUrls = (pokeDexApiData) => {
+const paginatePokemonUrls = (pokeDexApiData, pokemonPerPage = 15) => {
 	const pokeDexEntriesURLs = pokeDexApiData.map(({ name, url }) => {
 		return url;
 	});

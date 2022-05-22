@@ -1,14 +1,15 @@
 import { POKEAPI_BASE_URL } from "./constants";
 import paginatePokemonUrls from "./paginatePokemonUrls";
 
-const getPokemonUrls = async () => {
+const getPokemonUrls = async (pokemonPerPage) => {
 	try {
 		let res = await fetch(`${POKEAPI_BASE_URL}/pokemon?limit=2000`);
 
 		if (res.status < 400) {
 			const pokemonList = await res.json();
 			const paginatedPokemonUrlList = paginatePokemonUrls(
-				pokemonList.results
+				pokemonList.results,
+				pokemonPerPage
 			);
 
 			return paginatedPokemonUrlList;

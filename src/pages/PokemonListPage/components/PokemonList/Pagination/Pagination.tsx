@@ -3,29 +3,21 @@ import { PaginationProps } from "./Types";
 
 import "./styles.scss";
 
-const Pagination = ({
-	setPokemonPageIndex,
-	pokemonPageListLength,
-	pokemonPageIndex,
-}) => {
-	const [manualPage, setManualPage] = useState<number | string>("");
-	const [errorMessage, setErrorMessage] = useState<string>("");
+const Pagination = ({ setPokemonPageIndex, setPokemonPerPage, pokemonPerPage, pokemonPageListLength, pokemonPageIndex, children }) => {
+	const [manualPageDirection, setManualPageDirection] = useState<number | string>("");
+	const [DirectionerrorMessage, setDirectionErrorMessage] = useState<string>("");
+
+	const pokemonPerPageOptions = [5, 15, 30];
 
 	const handleGoToPage = (e) => {
 		e.preventDefault();
-		const pageToGo = Number(manualPage) - 1;
-		if (
-			(pageToGo || pageToGo === 0) &&
-			pageToGo <= pokemonPageListLength &&
-			pageToGo >= 0
-		) {
+		const pageToGo = Number(manualPageDirection) - 1;
+		if ((pageToGo || pageToGo === 0) && pageToGo <= pokemonPageListLength && pageToGo >= 0) {
 			setPokemonPageIndex(pageToGo);
-			setManualPage("");
-			setErrorMessage("");
+			setManualPageDirection("");
+			setDirectionErrorMessage("");
 		} else {
-			pageToGo
-				? setErrorMessage("there's no such page")
-				: setErrorMessage("");
+			pageToGo ? setDirectionErrorMessage("there's no such page") : setDirectionErrorMessage("");
 		}
 	};
 
@@ -36,44 +28,63 @@ const Pagination = ({
 
 	const handleNextPage = (e) => {
 		e.preventDefault();
-		pokemonPageIndex <= pokemonPageListLength &&
-			setPokemonPageIndex(pokemonPageIndex + 1);
+		pokemonPageIndex <= pokemonPageListLength && setPokemonPageIndex(pokemonPageIndex + 1);
+	};
+
+	const handlePageLengthChange = (pokemonsToShow) => {
+		setPokemonPerPage(pokemonsToShow);
 	};
 
 	return (
-		<div className='pagination-container'>
-			<p className='page-monitor'>
-				page {pokemonPageIndex + 1} of {pokemonPageListLength}
-			</p>
-			<div className='pagination-controls'>
-				<button
-					disabled={pokemonPageIndex <= 0}
-					onClick={handlePreviousPage}
-					className='basic-button pagination-button'
-				>
-					Previous page
-				</button>
-				<div className='manual-pagination'>
-					<input
-						value={manualPage || ""}
-						onChange={(e) => setManualPage(Number(e.target.value))}
-						type='number'
-						className='basic-input pagination-input'
-					/>
-					<button className=' basic-button' onClick={handleGoToPage}>
-						go to page
+		<>
+			<div className='pokemon-per-page'>
+				show
+				{pokemonPerPageOptions.map((pokemonsToShow) => (
+					<button
+						key={pokemonsToShow}
+						onClick={() => handlePageLengthChange(pokemonsToShow)}
+						className={`basic-button page-length-button${(pokemonPerPage === pokemonsToShow && "--checked") || ""}`}
+					>
+						{pokemonsToShow}
 					</button>
-					<p className='error-message'>{errorMessage}</p>
-				</div>
-				<button
-					disabled={pokemonPageIndex >= pokemonPageListLength - 1}
-					onClick={handleNextPage}
-					className='pagination-button basic-button'
-				>
-					Next page
-				</button>
+				))}
+				per page
 			</div>
-		</div>
+
+			{children}
+
+			<div className='pagination-container'>
+				<p className='page-monitor'>
+					page {pokemonPageIndex + 1} of {pokemonPageListLength}
+				</p>
+				<div className='pagination-controls'>
+					<button disabled={pokemonPageIndex <= 0} onClick={handlePreviousPage} className='basic-button pagination-button'>
+						Back
+					</button>
+					<div className='manual-pagination'>
+						<input
+							value={manualPageDirection || ""}
+							onChange={(e) => setManualPageDirection(Number(e.target.value))}
+							type='number'
+							className='basic-input pagination-input'
+						/>
+						<div className='go-to-button-container'>
+							<button className='basic-button go-to-button' onClick={handleGoToPage}>
+								go
+							</button>
+						</div>
+					</div>
+					<button
+						disabled={pokemonPageIndex >= pokemonPageListLength - 1}
+						onClick={handleNextPage}
+						className='pagination-button basic-button'
+					>
+						Next
+					</button>
+				</div>
+				{DirectionerrorMessage && <p className='error-message'>{DirectionerrorMessage}</p>}
+			</div>
+		</>
 	);
 };
 
