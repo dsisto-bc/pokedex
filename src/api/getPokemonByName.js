@@ -1,9 +1,10 @@
+import { POKEAPI_BASE_URL } from "./constants";
 import formatPokemon from "./formatPokemon";
 
 const getPokemonByName = async (pokemon) => {
 	try {
 		let pokemonEntry = await fetch(
-			`https://pokeapi.co/api/v2/pokemon/${pokemon}`
+			`${POKEAPI_BASE_URL}/pokemon/${pokemon}`
 		);
 		pokemonEntry = await pokemonEntry.json();
 		const pokemonData = formatPokemon(pokemonEntry);

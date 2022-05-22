@@ -1,0 +1,27 @@
+.attributes {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: lightpink;
+	border-radius: 15%;
+	border: lightcoral 2px solid;
+	box-shadow: 2px 3px 2px black;
+	flex-basis: max-content;
+
+	.attribute {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+		height: 100%;
+		width: 90%;
+		margin: 0;
+		border-bottom: 1px solid gray;
+
+		&:last-child {
+			border: none;
+		}
+	}
+}

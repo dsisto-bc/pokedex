@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
 import PokemonListItem from "../PokemonListItem/PokemonListItem";
 import getPokemonUrls from "../../../../api/getPokemonUrls";
+import { Pokemon } from "../../../../Types";
 
 import "./pokemonList.scss";
 
 const PokemonList = () => {
-	const [pokemonPageList, setPokemonPageList] = useState([]);
-	const [pokemonPage, setPokemonPage] = useState([]);
-	const [pokemonPageIndex, setPokemonPageIndex] = useState(1);
+	const [pokemonPageList, setPokemonPageList] = useState<string[]>([]);
+	const [pokemonPage, setPokemonPage] = useState<Pokemon[]>([]);
+	const [pokemonPageIndex, setPokemonPageIndex] = useState<number>(1);
 
 	useEffect(() => {
 		// Getting all pokemons urls first, already paginated
@@ -33,7 +34,10 @@ const PokemonList = () => {
 			</div>
 			<div>
 				{pokemonPage?.map((pokemon) => (
-					<PokemonListItem key={pokemon.name} {...pokemon} />
+					<PokemonListItem
+						key={pokemon.profile.pokemonName}
+						{...pokemon}
+					/>
 				))}
 			</div>
 		</section>
