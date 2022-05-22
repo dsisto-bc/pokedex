@@ -14,7 +14,7 @@ const PageNotFound = () => {
 				<img
 					alt='page-not-found'
 					className='image'
-					src='404-open-pokeball.png'
+					src='/404-open-pokeball.png'
 				/>
 			</div>
 			<Link className='basic-button button' to='/'>

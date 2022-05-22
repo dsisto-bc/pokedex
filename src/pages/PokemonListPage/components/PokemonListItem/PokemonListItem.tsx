@@ -26,7 +26,7 @@ const PokemonListItem = (pokemon: Pokemon) => {
 			</div>
 			<div className='type-container'>
 				{types.map((type) => (
-					<p key={type} className={`type type--${type}`}>
+					<p key={type} className={`type type-color--${type}`}>
 						{type}
 					</p>
 				))}
