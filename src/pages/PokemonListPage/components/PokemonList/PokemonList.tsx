@@ -3,8 +3,9 @@ import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
 import PokemonListItem from "../PokemonListItem/PokemonListItem";
 import getPokemonUrls from "../../../../api/getPokemonUrls";
 import { Pokemon } from "../../../../Types";
+import Pagination from "./Pagination";
 
-import "./pokemonList.scss";
+import "./styles.scss";
 
 const PokemonList = () => {
 	const [pokemonPageList, setPokemonPageList] = useState<string[]>([]);
@@ -29,67 +30,13 @@ const PokemonList = () => {
 		);
 	}, [pokemonPageList, pokemonPageIndex]);
 
-	const handleGoToPage = (e) => {
-		e.preventDefault();
-		const pageToGo = Number(manualPage) - 1;
-		if (
-			(pageToGo || pageToGo === 0) &&
-			pageToGo <= pokemonPageList.length &&
-			pageToGo >= 0
-		) {
-			setPokemonPageIndex(pageToGo);
-			setManualPage("");
-			setErrorMessage("");
-		} else {
-			pageToGo
-				? setErrorMessage("there's no such page")
-				: setErrorMessage("");
-		}
-	};
-
-	const handlePreviousPage = (e) => {
-		e.preventDefault();
-		pokemonPageIndex > 0 && setPokemonPageIndex(pokemonPageIndex - 1);
-	};
-
-	const handleNextPage = (e) => {
-		e.preventDefault();
-		pokemonPageIndex <= pokemonPageList.length &&
-			setPokemonPageIndex(pokemonPageIndex + 1);
-	};
-
 	return (
 		<section className='pokemon-list'>
-			<div className='pagination-container'>
-				<div className='manual-pagination'>
-					<input
-						value={manualPage || ""}
-						onChange={(e) => setManualPage(Number(e.target.value))}
-						type='number'
-					/>
-					<button onClick={handleGoToPage}>go to page</button>
-					<p>{errorMessage}</p>
-				</div>
-				<div className='pagination-controls'>
-					<button
-						disabled={pokemonPageIndex <= 0}
-						onClick={handlePreviousPage}
-					>
-						Previous page
-					</button>
-					<p>
-						page {pokemonPageIndex + 1} of {pokemonPageList.length}
-					</p>
-					<button
-						disabled={
-							pokemonPageIndex >= pokemonPageList.length - 1
-						}
-						onClick={handleNextPage}
-					>
-						Next page
-					</button>
-				</div>
-			</div>
+			<Pagination
+				setPokemonPageIndex={setPokemonPageIndex}
+				pokemonPageListLength={pokemonPageList.length}
+				pokemonPageIndex={pokemonPageIndex}
+			/>
 			<div>
 				{pokemonPage?.map((pokemon) => (
 					<PokemonListItem

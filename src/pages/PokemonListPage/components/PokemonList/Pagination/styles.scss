@@ -1,0 +1,32 @@
+.pagination-container {
+	.page-monitor {
+		flex: auto;
+	}
+
+	.pagination-controls {
+		display: flex;
+		justify-content: space-between;
+		column-gap: 16px;
+
+		.manual-pagination {
+			display: flex;
+			flex-direction: column;
+			.error-message {
+				color: red;
+			}
+
+			.pagination-input {
+				flex: 1;
+			}
+		}
+
+		.pagination-button {
+			aspect-ratio: 1;
+			padding: 12px;
+			box-sizing: content-box;
+			min-width: min-content;
+			min-height: min-content;
+			flex: 0;
+		}
+	}
+}
