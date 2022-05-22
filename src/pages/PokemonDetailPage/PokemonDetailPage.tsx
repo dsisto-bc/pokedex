@@ -5,7 +5,7 @@ import getPokemonByName from "../../api/getPokemonByName";
 import { Profile, Types, Attributes, Stats, Abilities } from "./DetailSections";
 
 import { Pokemon } from "../../Types";
-import "./PokemonDetailPage.scss";
+import "./styles.scss";
 
 const PokemonDetailPage = () => {
 	const { pokemonName } = useParams();

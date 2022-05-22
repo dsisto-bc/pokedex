@@ -1,7 +1,7 @@
 import React from "react";
 import { ProfileProps } from "./Types";
 
-import "./PokemonProfileSection.scss";
+import "./styles.scss";
 
 const PokemonDescriptionSection = ({
 	profile: { pokemonName, image },

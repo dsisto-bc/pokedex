@@ -25,10 +25,15 @@ body {
 			color: inherit;
 		}
 	}
+
+	section {
+		padding: 16px;
+	}
 }
 
 .basic-button {
 	border-radius: 12px;
+	border: none;
 	justify-content: center;
 	align-items: center;
 	color: white !important;
@@ -38,6 +43,28 @@ body {
 	display: flex;
 	height: 2.5em;
 	font-weight: bold;
+	font-family: "pokemon-font", sans-serif;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+	&:disabled {
+		background-color: gray;
+		box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	}
+
+	&:active {
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+	}
+}
+
+.basic-input {
+	border-radius: 5px;
+	padding: 0 16px;
+	height: 2.5em;
+	font-family: "pokemon-font", sans-serif;
+
+	&:focus {
+		outline: 2px ridge red;
+	}
 }
 
 .type-color {

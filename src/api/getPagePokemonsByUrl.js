@@ -14,9 +14,9 @@ const getPokemonByUrl = async (url) => {
 	}
 };
 
-const getPagePokemonsByUrl = async (pokemonUrls) => {
+const getPagePokemonsByUrl = async (pokemonUrls, pokemonPerPage) => {
 	const pokemonList = await Promise.all(
-		pokemonUrls?.map(getPokemonByUrl) ?? []
+		pokemonUrls?.map((url) => getPokemonByUrl(url, pokemonPerPage)) ?? []
 	);
 	return pokemonList;
 };

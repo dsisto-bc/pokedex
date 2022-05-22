@@ -1,7 +1,7 @@
 import React from "react";
 import { AttributeProps } from "./Types";
 
-import "./PokemonAttributesSection.scss";
+import "./styles.scss";
 
 const PokemonAttributesSection = ({ attributes }: AttributeProps) => (
 	<section className='attributes'>

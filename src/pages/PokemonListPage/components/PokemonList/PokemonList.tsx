@@ -3,13 +3,16 @@ import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
 import PokemonListItem from "../PokemonListItem/PokemonListItem";
 import getPokemonUrls from "../../../../api/getPokemonUrls";
 import { Pokemon } from "../../../../Types";
+import PaginationHeader from "./Pagination/PaginationHeader";
+import PaginationFooter from "./Pagination/PaginationFooter";
 
-import "./pokemonList.scss";
+import "./styles.scss";
 
 const PokemonList = () => {
 	const [pokemonPageList, setPokemonPageList] = useState<string[]>([]);
 	const [pokemonPage, setPokemonPage] = useState<Pokemon[]>([]);
-	const [pokemonPageIndex, setPokemonPageIndex] = useState<number>(1);
+	const [pokemonPageIndex, setPokemonPageIndex] = useState<number>(0);
+	const [pokemonPerPage, setPokemonPerPage] = useState<number>(15);
 
 	useEffect(() => {
 		// Getting all pokemons urls first, already paginated
@@ -20,26 +23,24 @@ const PokemonList = () => {
 
 	useEffect(() => {
 		// As soon as all pokemons are loaded, detailed pokemon data for current page's pokemon is defined to load the list
-		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex]).then(
-			(pokemons) => {
-				setPokemonPage(pokemons);
-			}
-		);
-	}, [pokemonPageList]);
+		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex], pokemonPerPage).then((pokemons) => {
+			setPokemonPage(pokemons);
+		});
+	}, [pokemonPageList, pokemonPageIndex, pokemonPerPage]);
 
 	return (
 		<section className='pokemon-list'>
-			<div>
-				page {pokemonPageIndex} of {pokemonPageList.length}
-			</div>
+			<PaginationHeader setPokemonPerPage={setPokemonPerPage} pokemonPerPage={pokemonPerPage} />
 			<div>
 				{pokemonPage?.map((pokemon) => (
-					<PokemonListItem
-						key={pokemon.profile.pokemonName}
-						{...pokemon}
-					/>
+					<PokemonListItem key={pokemon.profile.pokemonName} {...pokemon} />
 				))}
 			</div>
+			<PaginationFooter
+				setPokemonPageIndex={setPokemonPageIndex}
+				pokemonPageListLength={pokemonPageList.length}
+				pokemonPageIndex={pokemonPageIndex}
+			/>
 		</section>
 	);
 };
