@@ -1,3 +1,5 @@
+@use "/base";
+
 .skills {
 	display: flex;
 	flex-direction: column;
@@ -36,5 +38,9 @@
 			padding: 0 0.5rem;
 			min-height: 2rem;
 		}
+	}
+
+	@include base.tablet {
+		max-height: 13rem;
 	}
 }

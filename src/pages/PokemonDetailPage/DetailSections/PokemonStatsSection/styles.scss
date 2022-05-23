@@ -1,9 +1,8 @@
-@use "base";
-
 .stats {
-	display: none;
 	justify-content: space-between;
 	column-gap: 1.5rem;
+	box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px inset, rgba(0, 0, 0, 0.9) 0 0 0 1px;
+	width: 80%;
 
 	.title {
 		font-size: 1rem;
@@ -13,9 +12,5 @@
 		.stat {
 			font-size: 0.7rem;
 		}
-	}
-
-	@include base.desktop {
-		display: block;
 	}
 }

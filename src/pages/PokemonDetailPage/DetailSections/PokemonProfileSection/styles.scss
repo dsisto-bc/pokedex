@@ -1,12 +1,14 @@
+@use "/base";
+
 .profile {
 	width: 100%;
-	padding: 0;
-	background-color: lightgray;
-	border-radius: 0 0 15% 15%;
-	box-shadow: 0.13rem 0.2rem 0.13rem black;
 	display: flex;
 	flex-direction: column;
 	align-content: center;
+	background-color: lightgray;
+	border-radius: 0 0 15% 15%;
+	box-shadow: 0.13rem 0.2rem 0.13rem black;
+	padding: 0;
 
 	.name {
 		box-sizing: border-box;
@@ -22,4 +24,20 @@
 		width: 70%;
 		margin: 0 auto;
 	}
+
+	@include base.tablet {
+		.name {
+			font-size: 3rem;
+		}
+
+		.picture {
+			aspect-ratio: 1;
+			display: block;
+			width: 40%;
+			margin: 0 auto;
+		}
+	}
+
+	// @include base.desktop {
+	// }
 }
