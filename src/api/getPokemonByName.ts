@@ -1,7 +1,8 @@
 import { POKEAPI_BASE_URL } from "./constants";
 import formatPokemon from "./formatPokemon";
+import { Pokemon } from "../Types";
 
-const getPokemonByName = async (pokemon) => {
+const getPokemonByName = async (pokemon: string): Promise<Pokemon | null> => {
 	try {
 		let pokemonEntry = await fetch(`${POKEAPI_BASE_URL}/pokemon/${pokemon}`);
 		pokemonEntry = await pokemonEntry.json();
@@ -9,7 +10,7 @@ const getPokemonByName = async (pokemon) => {
 		return pokemonData;
 	} catch (error) {
 		console.error("There was an error getting the pokemon requested", error);
-		return false;
+		return null;
 	}
 };
 export default getPokemonByName;
