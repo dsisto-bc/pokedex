@@ -1,0 +1,21 @@
+@use "base";
+
+.stats {
+	display: none;
+	justify-content: space-between;
+	column-gap: 1.5rem;
+
+	.title {
+		font-size: 1rem;
+	}
+
+	.stat-container {
+		.stat {
+			font-size: 0.7rem;
+		}
+	}
+
+	@include base.desktop {
+		display: block;
+	}
+}

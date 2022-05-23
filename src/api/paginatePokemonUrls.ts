@@ -1,4 +1,6 @@
-const paginatePokemonUrls = (pokeDexApiData, pokemonPerPage = 15) => {
+import { Pokemon } from "../Types";
+
+const paginatePokemonUrls = (pokeDexApiData: any, pokemonPerPage: number = 15): string[][] => {
 	const pokeDexEntriesURLs = pokeDexApiData.map(({ name, url }) => {
 		return url;
 	});

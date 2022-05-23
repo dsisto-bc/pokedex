@@ -15,7 +15,6 @@ const PokemonDetailPage = () => {
 	useEffect(() => {
 		getPokemonByName(pokemonName).then((pokemonData) => {
 			!!pokemonData ? setPokemonDetails(pokemonData) : navigate("/404");
-			console.log("pokemonDetails", pokemonData);
 		});
 	}, []);
 

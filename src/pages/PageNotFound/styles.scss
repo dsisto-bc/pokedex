@@ -1,30 +1,60 @@
+@use "/base";
+
 .page-not-found {
 	background-color: lightgray;
-	padding: 24px 0;
 	height: 100%;
+	overflow: hidden;
+
+	@include base.tablet {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
 
 	.title {
-		margin: 0;
+		margin: 3rem 0;
 		text-align: center;
-		font-size: 28px;
+		font-size: 1.5rem;
+	}
+
+	.subtitle {
+		margin: 1.5rem 0;
+		text-align: center;
+		font-size: 1rem;
 	}
 
 	.image-container {
 		width: 80%;
-		height: fit-content;
-		margin: 48px auto;
-		box-sizing: border-box;
+		margin: 3rem auto;
+
 		.image {
 			height: 100%;
 			width: 100%;
 			object-fit: contain;
 		}
+
+		@include base.desktop {
+			width: 30%;
+		}
 	}
 
 	.button {
 		width: 80%;
-		margin: 16px 10%;
+		height: 3rem;
+		margin: 1rem auto;
 		position: fixed;
 		bottom: 0;
+		left: 0;
+		right: 0;
+
+		@include base.tablet {
+			height: 4rem;
+		}
+
+		@include base.desktop {
+			height: 5rem;
+			position: relative;
+			margin: 0 auto 4em;
+		}
 	}
 }
