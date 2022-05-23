@@ -5,4 +5,5 @@ export type ProfileProps = {
 export type Profile = {
 	pokemonName: string;
 	image: string;
+	mainType: string;
 };

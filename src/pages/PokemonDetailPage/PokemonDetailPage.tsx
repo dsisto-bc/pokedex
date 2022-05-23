@@ -21,11 +21,13 @@ const PokemonDetailPage = () => {
 	return (
 		!!pokemonDetails && (
 			<main className='pokemon-details'>
-				<Profile profile={pokemonDetails.profile} />
-				<Abilities abilities={pokemonDetails.abilities} />
-				<Types types={pokemonDetails.types} />
+				<Profile profile={{ ...pokemonDetails.profile, mainType: pokemonDetails.types[0] }} />
+				<div className='basic-info'>
+					<Types types={pokemonDetails.types} />
+					<Attributes attributes={pokemonDetails.attributes} />
+				</div>
 				<Stats stats={pokemonDetails.stats} />
-				<Attributes attributes={pokemonDetails.attributes} />
+				<Abilities abilities={pokemonDetails.abilities} />
 				<Link className='basic-button' to='/'>
 					Go back
 				</Link>

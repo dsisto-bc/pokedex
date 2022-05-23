@@ -6,14 +6,16 @@ import "./styles.scss";
 const PokemonAttributesSection = ({ attributes }: AttributeProps) => (
 	<section className='attributes'>
 		{attributes.map((attribute, i) => (
-			<div key={attribute[0]}>
-				{i !== 0 && <hr />}
-				<p className='attribute'>
-					{`${Object.keys(attribute)[0]}: ${
-						Object.values(attribute)[0]
-					}`}
-				</p>
-			</div>
+			<>
+				{i !== 0 && (
+					<div className='divider-container'>
+						<hr className='divider' />
+					</div>
+				)}
+				<div key={attribute[0]}>
+					<p className='attribute'>{`${Object.keys(attribute)[0]}: ${Object.values(attribute)[0]}`}</p>
+				</div>
+			</>
 		))}
 	</section>
 );

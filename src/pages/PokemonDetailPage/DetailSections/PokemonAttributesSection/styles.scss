@@ -2,26 +2,25 @@
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	align-items: stretch;
+	justify-content: space-evenly;
 	background-color: lightpink;
 	border-radius: 15%;
 	border: lightcoral 0.13rem solid;
 	box-shadow: 0.13rem 0.2rem 0.13rem black;
 	flex-basis: max-content;
 
-	.attribute {
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		justify-content: center;
-		height: 100%;
-		width: 90%;
-		margin: 0;
-		border-bottom: 1px solid gray;
+	.divider-container {
+		display: block;
 
-		&:last-child {
-			border: none;
+		.divider {
+			border-bottom: 1px solid gray;
+			width: 100%;
 		}
+	}
+
+	.attribute {
+		text-align: center;
+		margin: 0 1rem;
 	}
 }

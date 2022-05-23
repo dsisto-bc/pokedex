@@ -1,23 +1,25 @@
 .profile {
-	flex-grow: 1;
-	flex-basis: max-content;
-
-	.picture {
-		background-color: lightgray;
-		border-radius: 15%;
-		aspect-ratio: 1;
-		flex-grow: 1;
-		object-fit: contain;
-		margin: 0 auto;
-		display: block;
-		box-shadow: 0.13rem 0.2rem 0.13rem black;
-		width: 100%;
-	}
+	width: 100%;
+	padding: 0;
+	background-color: lightgray;
+	border-radius: 0 0 15% 15%;
+	box-shadow: 0.13rem 0.2rem 0.13rem black;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
 
 	.name {
 		box-sizing: border-box;
 		max-width: 100%;
-		margin: 1rem;
+		margin: 3rem 0 0;
 		text-align: center;
+		font-size: 2rem;
+	}
+
+	.picture {
+		aspect-ratio: 1;
+		display: block;
+		width: 80%;
+		margin: 0 auto;
 	}
 }
