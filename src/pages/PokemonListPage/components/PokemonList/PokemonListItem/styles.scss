@@ -1,15 +1,15 @@
-@use "base";
+@use "/base";
 
 .pokemon-list-item {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	box-sizing: border-box;
+	background-color: lightgray;
+	box-shadow: rgba(0, 0, 0, 0.4) 0 0.25rem 0.25rem, rgba(0, 0, 0, 0.3) 0 0.5rem 0.8rem -0.1875rem, rgba(0, 0, 0, 0.2) 0 -0.1875rem 0 inset;
 	border-radius: 15%;
 	padding: 1.5rem;
 	margin: 0;
-	background-color: lightgray;
-	box-shadow: rgba(0, 0, 0, 0.4) 0 0.25rem 0.25rem, rgba(0, 0, 0, 0.3) 0 0.5rem 0.8rem -0.1875rem, rgba(0, 0, 0, 0.2) 0 -0.1875rem 0 inset;
 
 	&:disabled {
 		background-color: gray;
@@ -28,16 +28,23 @@
 		.pokemon-name {
 			margin: 0;
 			margin-top: 1rem;
+			text-align: center;
+			font-size: 1.5rem;
 		}
 
 		.pokemon-image {
-			padding: 0 20%;
+			margin: 0.75rem 20%;
+			padding: 0.75rem;
 			object-fit: content;
+			border-radius: 50%;
 		}
 	}
 
+	.pokemon-stats-container {
+		display: none;
+	}
+
 	.type-container {
-		height: 100%;
 		display: flex;
 		justify-content: flex-end;
 		flex-wrap: wrap;
@@ -49,12 +56,27 @@
 		}
 	}
 
-	.pokemon-stats {
-		display: none;
+	@include base.tablet {
+		max-width: 50%;
+		min-width: calc(50% - 1rem);
 	}
 
-	@include base.tablet {
-		.pokemon-container {
+	@include base.desktop {
+		max-width: fit-content;
+		justify-content: space-between;
+		border-radius: 5%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		padding: 1.5rem;
+		margin: 0;
+
+		.type-container {
+			justify-content: center;
+		}
+
+		.pokemon-stats-container {
+			display: block;
 		}
 	}
 }

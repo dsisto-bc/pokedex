@@ -9,23 +9,28 @@ import PaginationFooter from "./Pagination/PaginationFooter";
 import "./styles.scss";
 
 const PokemonList = () => {
-	const [pokemonPageList, setPokemonPageList] = useState<string[]>([]);
+	const [pokemonPageList, setPokemonPageList] = useState<string[][]>([]);
 	const [pokemonPage, setPokemonPage] = useState<Pokemon[]>([]);
 	const [pokemonPageIndex, setPokemonPageIndex] = useState<number>(0);
 	const [pokemonPerPage, setPokemonPerPage] = useState<number>(15);
 
 	useEffect(() => {
 		// Getting all pokemons urls first, already paginated
-		getPokemonUrls(pokemonPerPage).then((urls) => {
+		getPokemonUrls(pokemonPerPage).then((urls: string[][]) => {
 			setPokemonPageList(urls);
 		});
 	}, [pokemonPerPage]);
 
 	useEffect(() => {
 		// As soon as all pokemons are loaded, detailed pokemon data for current page's pokemon is defined to load the list
-		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex]).then((pokemons) => {
-			setPokemonPage(pokemons);
-		});
+		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex])
+			.then((pokemons) => {
+				setPokemonPage(pokemons);
+			})
+			.then(() => {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			});
 	}, [pokemonPageList, pokemonPageIndex, setPokemonPage]);
 
 	return (

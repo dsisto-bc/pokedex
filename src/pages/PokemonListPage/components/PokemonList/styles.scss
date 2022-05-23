@@ -1,4 +1,4 @@
-@use "base";
+@use "/base";
 
 .pokemon-list {
 	background-color: white;
@@ -18,8 +18,14 @@
 		.pokemon-container {
 			flex-direction: row;
 			flex-wrap: wrap;
-			justify-content: space-between;
-			align-items: center;
+			column-gap: 1.5rem;
+			justify-content: center;
+		}
+	}
+
+	@include base.desktop {
+		.pokemon-container {
+			flex-direction: row;
 			column-gap: 1.5rem;
 		}
 	}

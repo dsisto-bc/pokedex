@@ -1,7 +1,15 @@
+@use "/base";
+
 .page-not-found {
 	background-color: lightgray;
 	height: 100%;
 	overflow: hidden;
+
+	@include base.tablet {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
 
 	.title {
 		margin: 3rem 0;
@@ -24,14 +32,29 @@
 			width: 100%;
 			object-fit: contain;
 		}
+
+		@include base.desktop {
+			width: 30%;
+		}
 	}
 
 	.button {
 		width: 80%;
+		height: 3rem;
 		margin: 1rem auto;
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		right: 0;
+
+		@include base.tablet {
+			height: 4rem;
+		}
+
+		@include base.desktop {
+			height: 5rem;
+			position: relative;
+			margin: 0 auto 4em;
+		}
 	}
 }

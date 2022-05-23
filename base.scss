@@ -1,6 +1,6 @@
 // constants
-$tablet-width: 480px;
-$desktop-width: 768px;
+$min-tablet-width: 480px;
+$min-desktop-width: 1288px;
 $font-size-mobile: 16px;
 $font-size-tablet: 18px;
 $font-size-desktop: 20px;
@@ -13,11 +13,22 @@ $font-size-button: 0.875rem;
 	src: local(""), url("/public/pokemon-font.ttf");
 }
 
-//global styles
+// mixins
+@mixin tablet {
+	@media (min-width: $min-tablet-width) {
+		@content;
+	}
+}
 
+@mixin desktop {
+	@media (min-width: $min-desktop-width) {
+		@content;
+	}
+}
+
+//global styles
 html {
 	height: 100vh;
-	font-size: $font-size-mobile;
 	body {
 		margin: 0;
 		height: 100%;
@@ -51,6 +62,15 @@ html {
 		section {
 			padding: 1rem;
 		}
+	}
+	font-size: $font-size-mobile;
+
+	@include tablet {
+		font-size: $font-size-tablet;
+	}
+
+	@include desktop {
+		font-size: $font-size-desktop;
 	}
 }
 
@@ -175,24 +195,5 @@ html {
 		background-color: #705898;
 		color: white;
 		color: #be7147;
-	}
-}
-
-// mixins
-@mixin tablet {
-	@media (min-width: #{$tablet-width}) {
-		html {
-			font-size: $font-size-tablet;
-			@content;
-		}
-	}
-}
-
-@mixin desktop {
-	@media (min-width: #{$desktop-width}) {
-		html {
-			font-size: $font-size-desktop;
-			@content;
-		}
 	}
 }
