@@ -13,7 +13,7 @@ const PokemonListItem = (pokemon: Pokemon) => {
 
 	return (
 		<Link to={`/${pokemonName}`} className='pokemon-list-item'>
-			<div className='pokemon-container'>
+			<div className='pokemon-profile'>
 				<h2 className='pokemon-name'>{pokemonName}</h2>
 				<img className='pokemon-image' src={image} alt={`${pokemon}'s picture`} />
 			</div>

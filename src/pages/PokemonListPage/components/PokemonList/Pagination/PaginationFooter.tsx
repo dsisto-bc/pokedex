@@ -49,19 +49,6 @@ const PaginationFooter = ({ setPokemonPageIndex, pokemonPageListLength, pokemonP
 					<button disabled={pokemonPageIndex <= 0} onClick={handlePreviousPage} className='basic-button pagination-button'>
 						Back
 					</button>
-					<div className='manual-pagination'>
-						<input
-							value={manualPageDirection || ""}
-							onChange={(e) => setManualPageDirection(Number(e.target.value))}
-							type='number'
-							className='basic-input pagination-input'
-						/>
-						<div className='go-to-button-container'>
-							<button className='basic-button go-to-button' onClick={handleGoToPage}>
-								go
-							</button>
-						</div>
-					</div>
 					<button
 						disabled={pokemonPageIndex >= pokemonPageListLength - 1}
 						onClick={handleNextPage}
@@ -69,6 +56,19 @@ const PaginationFooter = ({ setPokemonPageIndex, pokemonPageListLength, pokemonP
 					>
 						Next
 					</button>
+				</div>
+				<div className='manual-pagination'>
+					<div className='go-to-button-container'>
+						<button className='basic-button go-to-button' onClick={handleGoToPage}>
+							go to page:
+						</button>
+					</div>
+					<input
+						value={manualPageDirection || ""}
+						onChange={(e) => setManualPageDirection(Number(e.target.value))}
+						type='number'
+						className='basic-input pagination-input'
+					/>
 				</div>
 				{DirectionerrorMessage && <p className='error-message'>{DirectionerrorMessage}</p>}
 			</div>

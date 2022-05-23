@@ -6,18 +6,13 @@ const getPokemonByUrl = async (url) => {
 		pokemon = await pokemon.json();
 		return formatPokemon(pokemon);
 	} catch (error) {
-		console.error(
-			"There was an error getting the pokemon page info",
-			error
-		);
-		return [];
+		console.error("There was an error getting the pokemon page info", error);
+		return {};
 	}
 };
 
-const getPagePokemonsByUrl = async (pokemonUrls, pokemonPerPage) => {
-	const pokemonList = await Promise.all(
-		pokemonUrls?.map((url) => getPokemonByUrl(url, pokemonPerPage)) ?? []
-	);
+const getPagePokemonsByUrl = async (pokemonUrls) => {
+	const pokemonList = await Promise.all(pokemonUrls?.map((url) => getPokemonByUrl(url)));
 	return pokemonList;
 };
 

@@ -1,72 +1,99 @@
+// constants
 $tablet-width: 480px;
 $desktop-width: 768px;
+$font-size-mobile: 16px;
+$font-size-tablet: 18px;
+$font-size-desktop: 20px;
+$font-size-text-input: 1rem;
+$font-size-button: 0.875rem;
 
+//configs
 @font-face {
 	font-family: "pokemon-font";
-	src: local(""), url("./public/pokemon-font.ttf");
+	src: local(""), url("/public/pokemon-font.ttf");
 }
 
-body {
-	margin: 0;
+//global styles
+
+html {
 	height: 100vh;
-	font-family: "pokemon-font", sans-serif;
-
-	#root {
+	font-size: $font-size-mobile;
+	body {
+		margin: 0;
 		height: 100%;
-	}
+		font-family: "pokemon-font", sans-serif;
 
-	a {
-		text-decoration: none;
-
-		&:visited {
-			color: inherit;
+		#root {
+			height: 100%;
 		}
-		&:link {
-			color: inherit;
-		}
-	}
 
-	section {
-		padding: 16px;
+		a {
+			text-decoration: none;
+
+			&:visited {
+				color: inherit;
+			}
+			&:link {
+				color: inherit;
+			}
+
+			&.basic-button {
+				&:visited {
+					color: white;
+				}
+
+				&:link {
+					color: white;
+				}
+			}
+		}
+
+		section {
+			padding: 1rem;
+		}
 	}
 }
 
+//custom general components
 .basic-button {
-	border-radius: 12px;
-	border: none;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
-	background-color: red;
 	min-width: fit-content;
-	padding: 0 16px;
-	display: flex;
-	height: 2.5em;
+	height: 2.5rem;
+	padding: 0 1rem;
+	border-radius: 12px;
+	border: none;
 	font-weight: bold;
 	font-family: "pokemon-font", sans-serif;
-	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	font-size: $font-size-button;
+	color: white;
+	background-color: red;
+	box-shadow: rgba(0, 0, 0, 0.4) 0 0.125rem 0.25rem, rgba(0, 0, 0, 0.3) 0 0.5rem 0.81rem -0.2rem, rgba(0, 0, 0, 0.2) 0 -0.2rem 0 inset;
 
 	&:disabled {
 		background-color: gray;
-		box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+		box-shadow: rgba(0, 0, 0, 0.02) 0 0.07rem 0.2rem 0, rgba(27, 31, 35, 0.15) 0 0 0 0.07rem;
 	}
 
 	&:active {
-		box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+		box-shadow: rgba(50, 50, 93, 0.25) 0 2rem 4rem -0.75rem inset, rgba(0, 0, 0, 0.3) 0 1.2rem 2.5rem -1.2rem inset;
 	}
 }
 
 .basic-input {
-	border-radius: 5px;
-	padding: 0 16px;
-	height: 2.5em;
+	border-radius: 5%;
+	padding: 0 1rem;
+	height: 2.5rem;
 	font-family: "pokemon-font", sans-serif;
+	font-size: $font-size-text-input;
 
 	&:focus {
 		outline: 2px ridge red;
 	}
 }
 
+// pokemon type global colors
 .type-color {
 	&--normal {
 		background-color: #a8a878;
@@ -151,14 +178,21 @@ body {
 	}
 }
 
+// mixins
 @mixin tablet {
 	@media (min-width: #{$tablet-width}) {
-		@content;
+		html {
+			font-size: $font-size-tablet;
+			@content;
+		}
 	}
 }
 
 @mixin desktop {
 	@media (min-width: #{$desktop-width}) {
-		@content;
+		html {
+			font-size: $font-size-desktop;
+			@content;
+		}
 	}
 }

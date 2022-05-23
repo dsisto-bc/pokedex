@@ -16,17 +16,17 @@ const PokemonList = () => {
 
 	useEffect(() => {
 		// Getting all pokemons urls first, already paginated
-		getPokemonUrls().then((urls) => {
+		getPokemonUrls(pokemonPerPage).then((urls) => {
 			setPokemonPageList(urls);
 		});
-	}, []);
+	}, [pokemonPerPage]);
 
 	useEffect(() => {
 		// As soon as all pokemons are loaded, detailed pokemon data for current page's pokemon is defined to load the list
-		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex], pokemonPerPage).then((pokemons) => {
+		getPagePokemonsByUrl(pokemonPageList[pokemonPageIndex]).then((pokemons) => {
 			setPokemonPage(pokemons);
 		});
-	}, [pokemonPageList, pokemonPageIndex, pokemonPerPage, setPokemonPage]);
+	}, [pokemonPageList, pokemonPageIndex, setPokemonPage]);
 
 	return (
 		<section className='pokemon-list'>

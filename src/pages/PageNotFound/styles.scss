@@ -1,19 +1,24 @@
 .page-not-found {
 	background-color: lightgray;
-	padding: 24px 0;
 	height: 100%;
+	overflow: hidden;
 
 	.title {
-		margin: 0;
+		margin: 3rem 0;
 		text-align: center;
-		font-size: 28px;
+		font-size: 1.5rem;
+	}
+
+	.subtitle {
+		margin: 1.5rem 0;
+		text-align: center;
+		font-size: 1rem;
 	}
 
 	.image-container {
 		width: 80%;
-		height: fit-content;
-		margin: 48px auto;
-		box-sizing: border-box;
+		margin: 3rem auto;
+
 		.image {
 			height: 100%;
 			width: 100%;
@@ -23,8 +28,10 @@
 
 	.button {
 		width: 80%;
-		margin: 16px 10%;
+		margin: 1rem auto;
 		position: fixed;
 		bottom: 0;
+		left: 0;
+		right: 0;
 	}
 }
