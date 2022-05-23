@@ -1,8 +1,8 @@
-.main-page {
+.list-page {
 	padding: 1.5rem;
 	box-shadow: red 0 0 1rem 0.3rem inset;
 
-	.main-introduction {
+	.list-introduction {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -10,6 +10,8 @@
 		background-color: red;
 		box-shadow: red 0 0 1rem 0.3rem;
 		margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+		padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+		box-sizing: border-box;
 
 		.title {
 			font-size: 2rem;
