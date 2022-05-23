@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Pokemon } from "../../../../../Types";
-import { Stats } from "../../../../PokemonDetailPage/DetailSections";
+import PokemonStatsSection from "../../../../PokemonDetailPage/DetailSections/PokemonStatsSection";
 import "./styles.scss";
 
 const PokemonListItem = (pokemon: Pokemon) => {
@@ -27,7 +27,7 @@ const PokemonListItem = (pokemon: Pokemon) => {
 				</div>
 			</div>
 			<div className='pokemon-stats-container'>
-				<Stats stats={stats} />
+				<PokemonStatsSection stats={stats} />
 			</div>
 		</Link>
 	);

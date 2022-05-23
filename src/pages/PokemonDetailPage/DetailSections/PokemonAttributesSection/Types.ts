@@ -2,4 +2,8 @@ export type AttributeProps = {
 	attributes: Attribute[];
 };
 
-export type Attribute = { [attribute: string]: number };
+export type Attribute = {
+	height?: number;
+	weight?: number;
+	measurement: string;
+};

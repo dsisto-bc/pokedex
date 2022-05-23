@@ -13,7 +13,8 @@ const PokemonAttributesSection = ({ attributes }: AttributeProps) => (
 					</div>
 				)}
 				<div key={attribute[0]}>
-					<p className='attribute'>{`${Object.keys(attribute)[0]}: ${Object.values(attribute)[0]}`}</p>
+					<p className='attribute'>{`${Object.keys(attribute)[0]}:`}</p>
+					<p className='attribute'>{`${Number(Object.values(attribute)[0]) / 10} ${Object.values(attribute)[1]}`}</p>
 				</div>
 			</>
 		))}

@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import getPokemonByName from "../../api/getPokemonByName";
-import { Profile, Types, Attributes, Stats, Abilities } from "./DetailSections";
+import PokemonSkillsSection from "./DetailSections/PokemonSkillsSection";
+import PokemoAttributessSecton from "./DetailSections/PokemonAttributesSection";
+import PokemonProfileSecton from "./DetailSections/PokemonProfileSection";
+import PokemonStatsSecton from "./DetailSections/PokemonStatsSection";
+import PokemonTypesSecton from "./DetailSections/PokemonTypesSection";
 
 import { Pokemon } from "../../Types";
 import "./styles.scss";
@@ -21,14 +25,17 @@ const PokemonDetailPage = () => {
 	return (
 		!!pokemonDetails && (
 			<main className='pokemon-details'>
-				<Profile profile={{ ...pokemonDetails.profile, mainType: pokemonDetails.types[0] }} />
+				<PokemonProfileSecton profile={pokemonDetails.profile} />
 				<div className='basic-info'>
-					<Types types={pokemonDetails.types} />
-					<Attributes attributes={pokemonDetails.attributes} />
+					<PokemonTypesSecton types={pokemonDetails.types} />
+					<PokemoAttributessSecton attributes={pokemonDetails.attributes} />
 				</div>
-				<Stats stats={pokemonDetails.stats} />
-				<Abilities abilities={pokemonDetails.abilities} />
-				<Link className='basic-button' to='/'>
+				<PokemonStatsSecton stats={pokemonDetails.stats} />
+				<div className='skill-container'>
+					<PokemonSkillsSection skills={pokemonDetails.abilities} skillName='abilities' />
+					<PokemonSkillsSection skills={pokemonDetails.moves} skillName='moves' />
+				</div>
+				<Link className='basic-button go-back-button' to='/'>
 					Go back
 				</Link>
 			</main>

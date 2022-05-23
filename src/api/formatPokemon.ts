@@ -6,8 +6,12 @@ const formatPokemon = (apiResponse): Pokemon => {
 		profile: {
 			pokemonName: apiResponse.name as string,
 			image: apiResponse.sprites.front_default as string,
+			mainType: apiResponse.types.map((typeObj) => typeObj.type.name)[0],
 		},
-		attributes: [{ height: apiResponse.height as number }, { weight: apiResponse.weight as number }],
+		attributes: [
+			{ height: apiResponse.height as number, measurement: "mt" },
+			{ weight: apiResponse.weight as number, measurement: "kg" },
+		],
 		types: apiResponse.types.map((typeObj) => typeObj.type.name) as string[],
 		stats: apiResponse.stats.reduce(
 			(prevStats, apiStat) => ({

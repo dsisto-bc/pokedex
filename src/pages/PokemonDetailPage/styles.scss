@@ -5,9 +5,22 @@
 	width: 100%;
 
 	.basic-info {
-		padding: 2rem;
+		padding: 1.5rem;
 		display: flex;
 		justify-content: space-between;
 		column-gap: 1rem;
+	}
+
+	.skill-container {
+		display: flex;
+		justify-content: space-between;
+		width: 90%;
+		column-gap: 1rem;
+		padding: 1rem;
+	}
+
+	.go-back-button {
+		width: 80%;
+		margin: 1rem auto 2rem;
 	}
 }
