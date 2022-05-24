@@ -1,0 +1,33 @@
+@use "/base";
+
+.attributes {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-evenly;
+	background-color: lightpink;
+	border-radius: 15%;
+	border: lightcoral 0.13rem solid;
+	box-shadow: 0.13rem 0.2rem 0.13rem black;
+	flex-basis: max-content;
+
+	.divider-container {
+		display: block;
+
+		.divider {
+			border-bottom: 1px solid gray;
+			width: 100%;
+		}
+	}
+
+	.attribute {
+		text-align: center;
+		margin: 0.5rem 1rem;
+	}
+
+	@include base.tablet {
+		border-radius: 1rem;
+		flex: 1;
+	}
+}

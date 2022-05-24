@@ -1,0 +1,49 @@
+{
+	"name": "pokedex",
+	"version": "1.0.0",
+	"description": "Pokedex clone",
+	"main": "index.js",
+	"scripts": {
+		"build": "rm -rf build && webpack --watch --config webpack.config.js",
+		"start": "webpack serve  --open",
+		"deploy-to-github": "gh-pages -b main -d build"
+	},
+	"author": "BrunoMorales bruno.morales.developer@gmail.com",
+	"license": "MIT",
+	"homepage": "https://brunomorales.github.io/",
+	"dependencies": {
+		"netlify-cli": "^10.3.1",
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0",
+		"react-router-dom": "^6.3.0",
+		"sass": "^1.51.0",
+		"typescript": "^4.6.4"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.17.10",
+		"@babel/core": "^7.17.10",
+		"@babel/plugin-transform-runtime": "^7.17.10",
+		"@babel/preset-env": "^7.17.10",
+		"@babel/preset-react": "^7.16.7",
+		"@babel/preset-typescript": "^7.16.7",
+		"@babel/runtime": "^7.17.9",
+		"@types/react": "^18.0.9",
+		"@types/react-dom": "^18.0.3",
+		"babel-eslint": "^10.1.0",
+		"babel-loader": "^8.2.5",
+		"css-loader": "^6.7.1",
+		"eslint": "^8.15.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-jest": "^26.1.5",
+		"gh-pages": "^4.0.0",
+		"html-webpack-plugin": "^5.5.0",
+		"mini-css-extract-plugin": "^2.6.0",
+		"node-sass": "^7.0.1",
+		"path": "^0.12.7",
+		"sass-loader": "^12.6.0",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.72.1",
+		"webpack-cli": "^4.9.2",
+		"webpack-dev-server": "^4.9.0"
+	}
+}

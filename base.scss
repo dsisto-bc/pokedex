@@ -1,0 +1,203 @@
+// constants
+$min-tablet-width: 768px;
+$min-desktop-width: 1288px;
+$font-size-mobile: 16px;
+$font-size-tablet: 18px;
+$font-size-desktop: 20px;
+$font-size-text-input: 1rem;
+$font-size-button: 0.875rem;
+$button-shadow: rgba(0, 0, 0, 0.4) 0 0.125rem 0.25rem, rgba(0, 0, 0, 0.3) 0 0.5rem 0.81rem -0.2rem, rgba(0, 0, 0, 0.2) 0 -0.2rem 0 inset;
+
+//configs
+@font-face {
+	font-family: "pokemon-font";
+	src: local(""), url("/public/pokemon-font.ttf");
+}
+
+// mixins
+@mixin tablet {
+	@media (min-width: $min-tablet-width) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $min-desktop-width) {
+		@content;
+	}
+}
+
+@mixin button-shadow {
+	box-shadow: $button-shadow;
+}
+
+//global styles
+html {
+	height: 100vh;
+	body {
+		margin: 0;
+		height: 100%;
+		font-family: "pokemon-font", sans-serif;
+
+		#root {
+			height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+
+			&:visited {
+				color: inherit;
+			}
+			&:link {
+				color: inherit;
+			}
+
+			&.basic-button {
+				&:visited {
+					color: white;
+				}
+
+				&:link {
+					color: white;
+				}
+			}
+		}
+
+		section {
+			padding: 1rem;
+		}
+	}
+	font-size: $font-size-mobile;
+
+	@include tablet {
+		font-size: $font-size-tablet;
+	}
+
+	@include desktop {
+		font-size: $font-size-desktop;
+	}
+}
+
+//custom general components
+.basic-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 1rem;
+	border-radius: 12px;
+	border: none;
+	min-width: fit-content;
+	height: 2.5rem;
+	font-family: "pokemon-font", sans-serif;
+	font-size: $font-size-button;
+	color: white;
+	background-color: red;
+	box-shadow: $button-shadow;
+
+	&:disabled {
+		background-color: gray;
+		box-shadow: rgba(0, 0, 0, 0.02) 0 0.07rem 0.2rem 0, rgba(27, 31, 35, 0.15) 0 0 0 0.07rem;
+	}
+
+	&:active {
+		box-shadow: rgba(50, 50, 93, 0.25) 0 2rem 4rem -0.75rem inset, rgba(0, 0, 0, 0.3) 0 1.2rem 2.5rem -1.2rem inset;
+	}
+}
+
+.basic-input {
+	border-radius: 5%;
+	padding: 0 1rem;
+	height: 2.5rem;
+	font-family: "pokemon-font", sans-serif;
+	font-size: $font-size-text-input;
+
+	&:focus {
+		outline: 2px ridge red;
+	}
+}
+
+// pokemon type global colors
+.type-color {
+	&--normal {
+		background-color: #a8a878;
+		color: white;
+	}
+	&--fighting {
+		background-color: #c03028;
+		color: white;
+	}
+	&--flying {
+		background-color: #a890f0;
+		color: white;
+	}
+	&--poison {
+		background-color: #a040a0;
+		color: white;
+	}
+	&--ground {
+		background-color: #e0c068;
+		color: white;
+	}
+	&--rock {
+		background-color: #b8a038;
+		color: white;
+	}
+	&--bug {
+		background-color: #a8b820;
+		color: white;
+	}
+	&--ghost {
+		background-color: #705898;
+		color: white;
+	}
+	&--steel {
+		background-color: #b8b8d0;
+		color: white;
+	}
+	&--fire {
+		background-color: #f08030;
+		color: white;
+	}
+	&--water {
+		background-color: #6890f0;
+		color: white;
+	}
+	&--grass {
+		background-color: #78c850;
+		color: white;
+	}
+	&--electric {
+		background-color: #f8d030;
+		color: white;
+	}
+	&--psychic {
+		background-color: #f85888;
+		color: white;
+	}
+	&--ice {
+		background-color: #98d8d8;
+		color: white;
+	}
+	&--dragon {
+		background-color: #7038f8;
+		color: white;
+	}
+	&--dark {
+		background-color: #705848;
+		color: white;
+	}
+	&--fairy {
+		background-color: #f0b6bc;
+		color: white;
+	}
+	&--unknown {
+		background-color: #6aa596;
+		color: white;
+	}
+	&--shadow {
+		background-color: #705898;
+		color: white;
+		color: #be7147;
+	}
+}

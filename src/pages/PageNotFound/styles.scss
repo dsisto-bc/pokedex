@@ -1,0 +1,60 @@
+@use "/base";
+
+.page-not-found {
+	background-color: lightgray;
+	height: 100%;
+	overflow: hidden;
+
+	@include base.tablet {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+	.title {
+		margin: 3rem 0;
+		text-align: center;
+		font-size: 1.5rem;
+	}
+
+	.subtitle {
+		margin: 1.5rem 0;
+		text-align: center;
+		font-size: 1rem;
+	}
+
+	.image-container {
+		width: 80%;
+		margin: 3rem auto;
+
+		.image {
+			height: 100%;
+			width: 100%;
+			object-fit: contain;
+		}
+
+		@include base.desktop {
+			width: 30%;
+		}
+	}
+
+	.button {
+		width: 80%;
+		height: 3rem;
+		margin: 1rem auto;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		@include base.tablet {
+			height: 4rem;
+		}
+
+		@include base.desktop {
+			height: 5rem;
+			position: relative;
+			margin: 0 auto 4em;
+		}
+	}
+}
