@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Pokemon } from "../../../../../Types";
-import { Stats } from "../../../../PokemonDetailPage/DetailSections";
+import PokemonStatsSection from "../../../../PokemonDetailPage/DetailSections/PokemonStatsSection";
 import "./styles.scss";
 
 const PokemonListItem = (pokemon: Pokemon) => {
@@ -20,14 +20,14 @@ const PokemonListItem = (pokemon: Pokemon) => {
 				</div>
 				<div className='type-container'>
 					{types.map((type) => (
-						<p key={type} className={`type type-color--${type}`}>
+						<button key={type} className={`basic-button type-color--${type}`}>
 							{type}
-						</p>
+						</button>
 					))}
 				</div>
 			</div>
 			<div className='pokemon-stats-container'>
-				<Stats stats={stats} />
+				<PokemonStatsSection stats={stats} />
 			</div>
 		</Link>
 	);

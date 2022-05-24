@@ -1,0 +1,21 @@
+@use "/base";
+
+.types-section {
+	padding: 0;
+
+	.title {
+		margin: 2rem 0;
+		text-align: center;
+	}
+
+	.type {
+		margin: 0.75rem auto;
+		width: 100%;
+	}
+
+	.basic-button {
+		&:active {
+			@include base.button-shadow;
+		}
+	}
+}

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { PaginationHeaderProps } from "./Types";
 
-const PaginationHeader = ({ setPokemonPerPage, pokemonPerPage }) => {
+const PaginationHeader = ({ setPokemonPerPage, pokemonPerPage }: PaginationHeaderProps) => {
 	const pokemonPerPageOptions = [5, 15, 30];
 
 	const handlePageLengthChange = (pokemonsToShow) => {

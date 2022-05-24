@@ -3,8 +3,8 @@ import getPagePokemonsByUrl from "../../../../api/getPagePokemonsByUrl";
 import PokemonListItem from "./PokemonListItem";
 import getPokemonUrls from "../../../../api/getPokemonUrls";
 import { Pokemon } from "../../../../Types";
-import PaginationHeader from "./Pagination/PaginationHeader";
-import PaginationFooter from "./Pagination/PaginationFooter";
+import PaginationHeader from "../Pagination/PaginationHeader";
+import PaginationFooter from "../Pagination/PaginationFooter";
 
 import "./styles.scss";
 

@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from "react";
-import { PaginationProps } from "./Types";
+import { PaginationFooterProps } from "./Types";
 
 import "./styles.scss";
 
-const PaginationFooter = ({ setPokemonPageIndex, pokemonPageListLength, pokemonPageIndex }) => {
+const PaginationFooter = ({ setPokemonPageIndex, pokemonPageListLength, pokemonPageIndex }: PaginationFooterProps) => {
 	const [manualPageDirection, setManualPageDirection] = useState<number | string>("");
 	const [DirectionerrorMessage, setDirectionErrorMessage] = useState<string>("");
 
