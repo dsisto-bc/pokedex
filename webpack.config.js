@@ -26,18 +26,10 @@ module.exports = {
 		hot: true,
 		liveReload: true,
 		historyApiFallback: true,
+		contentBase: "./build",
 	},
 	resolve: {
-		extensions: [
-			".ts",
-			".tsx",
-			".js",
-			".jsx",
-			".json",
-			".scss",
-			".sass",
-			".css",
-		],
+		extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".scss", ".sass", ".css"],
 	},
 	module: {
 		rules: [
@@ -49,11 +41,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					"style-loader",
-					"css-loader",
-				],
+				use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
 			},
 			{
 				test: /\.(sass|scss)$/,
