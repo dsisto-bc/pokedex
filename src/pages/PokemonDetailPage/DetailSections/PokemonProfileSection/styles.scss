@@ -21,7 +21,7 @@
 	.picture {
 		aspect-ratio: 1;
 		display: block;
-		width: 70%;
+		width: 50%;
 		margin: 0 auto;
 	}
 
@@ -38,6 +38,27 @@
 		}
 	}
 
-	// @include base.desktop {
-	// }
+	@include base.desktop {
+		background-color: unset !important;
+		box-shadow: unset;
+		border-radius: 15px;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+
+		.name {
+			color: black;
+		}
+
+		.picture {
+			display: block;
+			width: 20%;
+			border-radius: 40%;
+			padding: 3rem;
+			margin: 2rem 0;
+			box-shadow: red 3px 3px 6px 0px inset, red -3px -3px 6px 1px inset;
+		}
+	}
 }

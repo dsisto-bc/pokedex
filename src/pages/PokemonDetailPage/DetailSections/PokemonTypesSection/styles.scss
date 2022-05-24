@@ -1,8 +1,13 @@
 .types-section {
 	padding: 0;
 
+	&:active {
+		box-shadow: none;
+	}
+
 	.title {
 		margin: 2rem 0;
+		text-align: center;
 	}
 
 	.type {
