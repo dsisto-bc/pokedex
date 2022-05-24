@@ -27,3 +27,29 @@ Have a Readme.md with running instructions and decitions you have taken (special
 ---
 
 Author: Bruno Morales
+
+## How to run the app:
+
+-   Make sure Node is installed (https://nodejs.org/es/download/)
+-   Clone the repository by running in terminal:
+
+```
+git clone https://github.com/BrunoMorales/pokedex.git
+```
+
+-   and move to the created directory (pokedex)
+
+-   Add dependencies and build running in your terminal:
+
+```
+yarn
+yarn build
+```
+
+-   Finally, open locally the app by running
+
+```
+yarn start
+```
+
+If you run yarn start while build is still running, all changes in the code will be automatically updated and loaded into the server.
