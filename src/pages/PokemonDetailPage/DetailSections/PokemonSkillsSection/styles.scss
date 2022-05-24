@@ -39,7 +39,7 @@
 			min-height: 2rem;
 
 			&:active {
-				box-shadow: none;
+				@include base.button-shadow;
 			}
 		}
 	}

@@ -1,9 +1,7 @@
+@use "/base";
+
 .types-section {
 	padding: 0;
-
-	&:active {
-		box-shadow: none;
-	}
 
 	.title {
 		margin: 2rem 0;
@@ -13,5 +11,11 @@
 	.type {
 		margin: 0.75rem auto;
 		width: 100%;
+	}
+
+	.basic-button {
+		&:active {
+			@include base.button-shadow;
+		}
 	}
 }

@@ -18,7 +18,7 @@
 	}
 
 	&:active {
-		box-shadow: rgba(50, 50, 93, 0.25) 0 1.875rem 3.75rem -0.75rem inset, rgba(0, 0, 0, 0.3) 0 1.125rem 2.25rem -1.125rem inset;
+		@include base.button-shadow;
 	}
 
 	.pokemon-profile {
@@ -53,7 +53,7 @@
 
 		.basic-button {
 			&:active {
-				box-shadow: initial;
+				@include base.button-shadow;
 			}
 		}
 	}

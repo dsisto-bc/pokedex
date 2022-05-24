@@ -1,11 +1,12 @@
 // constants
-$min-tablet-width: 780px;
+$min-tablet-width: 768px;
 $min-desktop-width: 1288px;
 $font-size-mobile: 16px;
 $font-size-tablet: 18px;
 $font-size-desktop: 20px;
 $font-size-text-input: 1rem;
 $font-size-button: 0.875rem;
+$button-shadow: rgba(0, 0, 0, 0.4) 0 0.125rem 0.25rem, rgba(0, 0, 0, 0.3) 0 0.5rem 0.81rem -0.2rem, rgba(0, 0, 0, 0.2) 0 -0.2rem 0 inset;
 
 //configs
 @font-face {
@@ -24,6 +25,10 @@ $font-size-button: 0.875rem;
 	@media (min-width: $min-desktop-width) {
 		@content;
 	}
+}
+
+@mixin button-shadow {
+	box-shadow: $button-shadow;
 }
 
 //global styles
@@ -88,7 +93,7 @@ html {
 	font-size: $font-size-button;
 	color: white;
 	background-color: red;
-	box-shadow: rgba(0, 0, 0, 0.4) 0 0.125rem 0.25rem, rgba(0, 0, 0, 0.3) 0 0.5rem 0.81rem -0.2rem, rgba(0, 0, 0, 0.2) 0 -0.2rem 0 inset;
+	box-shadow: $button-shadow;
 
 	&:disabled {
 		background-color: gray;
