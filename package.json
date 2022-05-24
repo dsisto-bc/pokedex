@@ -6,12 +6,13 @@
 	"scripts": {
 		"build": "rm -rf build && webpack --watch --config webpack.config.js",
 		"start": "webpack serve  --open",
-		"deploy-to-github": "gh-pages -d build"
+		"deploy-to-github": "gh-pages -b main -d build"
 	},
 	"author": "BrunoMorales bruno.morales.developer@gmail.com",
 	"license": "MIT",
 	"homepage": "https://brunomorales.github.io/",
 	"dependencies": {
+		"netlify-cli": "^10.3.1",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
 		"react-router-dom": "^6.3.0",
