@@ -8,8 +8,8 @@ module.exports = {
 	entry: "./index.js",
 	output: {
 		path: path.resolve(__dirname, "build"),
-		filename: "index.js",
-		publicPath: "/",
+		filename: "bundle.js",
+		publicPath: "/pokedex/build",
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "build/styles.css" }),
@@ -20,24 +20,18 @@ module.exports = {
 	],
 	target: ["web", "es5"],
 	devServer: {
-		port: "4269",
+		port: "3000",
 		static: "public",
 		open: true,
 		hot: true,
 		liveReload: true,
-		historyApiFallback: true,
+		contentBase: "./build",
+		historyApiFallback: {
+			rewrites: [{ from: /\//, to: "/404.html" }],
+		},
 	},
 	resolve: {
-		extensions: [
-			".ts",
-			".tsx",
-			".js",
-			".jsx",
-			".json",
-			".scss",
-			".sass",
-			".css",
-		],
+		extensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".scss", ".sass", ".css"],
 	},
 	module: {
 		rules: [
@@ -49,11 +43,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					"style-loader",
-					"css-loader",
-				],
+				use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"],
 			},
 			{
 				test: /\.(sass|scss)$/,

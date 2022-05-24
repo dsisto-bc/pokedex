@@ -10,7 +10,7 @@ import "./base.scss";
 const root = createRoot(document.getElementById("root"));
 
 root.render(
-	<BrowserRouter>
+	<BrowserRouter basename='/pokedex'>
 		<Routes>
 			<Route path='' element={<PokemonListPage />} />
 			<Route path='404' element={<PageNotFound />} />
